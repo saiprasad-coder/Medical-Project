@@ -1,0 +1,206 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* BODY */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #2f5c7e, #514a7d);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* MAIN CONTAINER */
+.main-container {
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+}
+
+/* CARD */
+.card {
+  display: flex;
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+/* LEFT PANEL */
+.left-panel {
+  flex: 1;
+  background: linear-gradient(180deg, #4fa9ff, #1ddde8);
+  color: #ffffff;
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.left-panel h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+/* IMAGE */
+.image-box {
+  width: 100%;
+  max-width: 280px;
+  text-align: center;
+}
+
+.doctor-img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.image-caption {
+  margin-top: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* RIGHT PANEL */
+.right-panel {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* BRAND HEADER */
+.brand-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+/* LOGO CONTAINER */
+.logo {
+  width: 72px;
+  height: 70px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #4fa9ff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden; /* CRITICAL */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* ✅ FORCE IMAGE TO FIT INSIDE CIRCLE */
+.logo img {
+  max-width: 120%;
+  max-height: 120%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+
+/* ✅ LOGO IMAGE — PERFECT FIT INSIDE CIRCLE */
+.logo img {
+  width: 60%;          /* 🔥 CHANGE HERE */
+  height: 60%;
+  object-fit: contain;
+}
+
+/* BRAND NAME */
+.brand-name {
+  margin-top: 12px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #2f5c7e;
+}
+
+
+/* 🔥 FORCE LOGO TO FILL CIRCLE (THIS IS THE KEY) */
+.logo > img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+  transform: scale(1.9); /* GUARANTEED ZOOM */
+}
+
+/* BRAND NAME */
+.brand-name {
+  margin-top: 12px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #2f5c7e;
+}
+
+/* INPUTS */
+.right-panel input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* BUTTON */
+.login-btn {
+  padding: 12px;
+  background: #4fa9ff;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background: #3a96f0;
+}
+
+/* SIGNUP */
+.signup-text {
+  margin-top: 15px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.signup-text a {
+  color: #4fa9ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.logo-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 2px solid #4da3ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;   /* VERY IMPORTANT */
+  margin: 0 auto 10px;
+}
+
+.logo-circle img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain; /* keeps logo inside */
+}
+
+<div class="logo-circle">
+  <img src="assets/images/logo.png" alt="DoseCare Logo">
+</div>
