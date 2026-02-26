@@ -1,55 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>Smart Medical Reminder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DoseCare | Smart Medical Reminder</title>
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="main-container">
+  <div class="main-container">
 
-  <div class="card">
+    <div class="card">
 
-    <!-- LEFT PANEL -->
-    <div class="left-panel">
-      <h2>Smart Medical Reminder</h2>
+      <!-- LEFT PANEL -->
+      <div class="left-panel">
+        <h2>Smart Medical Reminder</h2>
 
-      <div class="image-box">
-        <img src="doctor.jpg" alt="Doctor" class="doctor-img">
-        <p class="image-caption">Never miss a dose</p>
-      </div>
-    </div>
-
-    <!-- RIGHT PANEL -->
-    <div class="right-panel">
-
-      <!-- BRAND -->
-      <div class="brand-header">
-        <div class="logo">
-          <img src="dosecarelogo.png" alt="DoseCare Logo">
+        <div class="image-box">
+          <img src="doctor.jpg" alt="Doctor" class="doctor-img">
+          <p class="image-caption">Never miss a dose</p>
         </div>
-        <h2 class="brand-name">DoseCare</h2>
       </div>
 
-      <input type="email" placeholder="Email">
-      <input type="password" placeholder="Password">
+      <!-- RIGHT PANEL -->
+      <div class="right-panel">
 
-      <button class="login-btn">Login</button>
+        <!-- BRAND -->
+        <div class="brand-header">
+          <div class="logo">
+            <img src="dosecarelogo.png" alt="DoseCare Logo">
+          </div>
+          <h1 class="brand-name">DoseCare</h1>
+        </div>
 
-      <p class="signup-text">
-        Don't have an account? <a href="#">Sign up</a>
-      </p>
+        <!-- ✅ Form added -->
+        <form id="login-form" action="#" method="post" style="width: 100%; display: flex; flex-direction: column;">
+
+          <!-- ✅ Label + id + name -->
+          <div class="input-group">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          </div>
+
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+          </div>
+
+          <!-- ✅ Explicit button type -->
+          <button type="submit" class="login-btn">Sign In</button>
+        </form>
+
+        <!-- ✅ Real link -->
+        <p class="signup-text">
+          Don't have an account? <a href="signup.html">Sign up</a>
+        </p>
+
+      </div>
 
     </div>
 
   </div>
 
-</div>
-
+  <!-- Authentication Script -->
+  <script src="auth.js"></script>
 </body>
+
 </html>

@@ -27,7 +27,7 @@ body {
   background: #ffffff;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
 }
 
 /* LEFT PANEL */
@@ -60,7 +60,7 @@ body {
   width: 100%;
   border-radius: 16px;
   object-fit: cover;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
 .image-caption {
@@ -99,8 +99,9 @@ body {
   align-items: center;
   justify-content: center;
 
-  overflow: hidden; /* CRITICAL */
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  overflow: hidden;
+  /* CRITICAL */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 /* ✅ FORCE IMAGE TO FIT INSIDE CIRCLE */
@@ -116,7 +117,8 @@ body {
 
 /* ✅ LOGO IMAGE — PERFECT FIT INSIDE CIRCLE */
 .logo img {
-  width: 60%;          /* 🔥 CHANGE HERE */
+  width: 60%;
+  /* 🔥 CHANGE HERE */
   height: 60%;
   object-fit: contain;
 }
@@ -131,11 +133,12 @@ body {
 
 
 /* 🔥 FORCE LOGO TO FILL CIRCLE (THIS IS THE KEY) */
-.logo > img {
+.logo>img {
   width: 70%;
   height: 70%;
   object-fit: contain;
-  transform: scale(1.9); /* GUARANTEED ZOOM */
+  transform: scale(1.9);
+  /* GUARANTEED ZOOM */
 }
 
 /* BRAND NAME */
@@ -146,11 +149,24 @@ body {
   color: #2f5c7e;
 }
 
-/* INPUTS */
+/* INPUTS & LABELS */
+.input-group {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 6px;
+}
+
 .right-panel input {
   width: 100%;
   padding: 12px 14px;
-  margin-bottom: 15px;
   border-radius: 8px;
   border: 1px solid #ccc;
   font-size: 14px;
@@ -183,6 +199,7 @@ body {
   text-decoration: none;
   font-weight: 500;
 }
+
 .logo-circle {
   width: 90px;
   height: 90px;
@@ -191,16 +208,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;   /* VERY IMPORTANT */
+  overflow: hidden;
+  /* VERY IMPORTANT */
   margin: 0 auto 10px;
 }
 
 .logo-circle img {
   width: 70%;
   height: 70%;
-  object-fit: contain; /* keeps logo inside */
+  object-fit: contain;
+  /* keeps logo inside */
 }
-
-<div class="logo-circle">
-  <img src="assets/images/logo.png" alt="DoseCare Logo">
-</div>
