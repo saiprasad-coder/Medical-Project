@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | DoseCare Smart Reminder</title>
+
+    <!-- Google Fonts for typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Suggested stylesheet reference (no inline styling) -->
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+
+<body class="dashboard-layout">
+
+    <!-- HEADER NAVIGATION -->
+    <header class="topbar-header" role="banner">
+
+        <!-- Branding Area -->
+        <div class="brand-container">
+            <div class="logo-wrapper">
+                <img src="../assets/images/dosecarelogo.png" alt="DoseCare Logo" class="brand-logo">
+            </div>
+            <h1 class="brand-title">DoseCare</h1>
+        </div>
+
+        <!-- Header Actions -->
+        <div class="topbar-actions">
+            <!-- Add a visually hidden label for accessibility if icon is used -->
+            <button id="logout-btn" class="btn btn-logout" aria-label="Log out of DoseCare">
+                Logout
+            </button>
+        </div>
+
+    </header>
+
+    <!-- APP CONTAINER -->
+    <div class="app-container">
+
+        <!-- SIDEBAR NAVIGATION -->
+        <nav class="sidebar-navigation" aria-label="Main Navigation">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link nav-link--active" id="nav-dashboard" aria-current="page">
+                        <span class="nav-icon" aria-hidden="true">&#127968;</span>
+                        <!-- Temp emoji for layout visualization -->
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="nav-auto-order">
+                        <span class="nav-icon" aria-hidden="true">&#128230;</span>
+                        <span class="nav-text">Auto Order</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="nav-add-reminder">
+                        <span class="nav-icon" aria-hidden="true">&#10133;</span>
+                        <span class="nav-text">Add Reminder</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="nav-profile">
+                        <span class="nav-icon" aria-hidden="true">&#128100;</span>
+                        <span class="nav-text">Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- MAIN WORKSPACE -->
+        <main class="main-workspace" role="main">
+
+            <!-- Page Greeting -->
+            <header class="workspace-header">
+                <h2 class="workspace-greeting">Hello, <span id="greeting-name">User</span>!</h2>
+                <p class="workspace-subtitle">Here is your medical overview for today.</p>
+            </header>
+
+            <div id="dashboard-active-view">
+
+                <!-- OVERVIEW CARDS (Designed for CSS Grid) -->
+                <section class="overview-grid" aria-label="Health Overview Statistics">
+
+                    <!-- Card 1 -->
+                    <article class="stat-card stat-card--total" tabindex="0">
+                        <div class="stat-card-header">
+                            <h3 class="stat-card-title">Total Medicines</h3>
+                        </div>
+                        <div class="stat-card-body">
+                            <p class="stat-card-primary-value" id="count-total">0</p>
+                            <p class="stat-card-label stat-label--neutral">Active prescriptions</p>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="stat-card stat-card--today" tabindex="0">
+                        <div class="stat-card-header">
+                            <h3 class="stat-card-title">Today's Reminders</h3>
+                        </div>
+                        <div class="stat-card-body">
+                            <p class="stat-card-primary-value" id="count-today">0</p>
+                            <p class="stat-card-label stat-label--info">pending</p>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="stat-card stat-card--missed" tabindex="0">
+                        <div class="stat-card-header">
+                            <h3 class="stat-card-title">Missed Doses</h3>
+                        </div>
+                        <div class="stat-card-body">
+                            <p class="stat-card-primary-value" id="count-missed">0</p>
+                            <p class="stat-card-label stat-label--alert">Requires attention!</p>
+                        </div>
+                    </article>
+
+                </section>
+
+                <!-- REMINDER LIST SECTION (Designed for Flexbox/Grid) -->
+                <section class="reminders-section" aria-labelledby="schedule-heading">
+
+                    <header class="section-header">
+                        <h3 id="schedule-heading" class="section-heading">Today's Schedule</h3>
+                        <button class="btn btn-primary btn-sm" id="btn-add-dose">Add New Dose</button>
+                    </header>
+
+                    <div class="reminder-list" id="reminder-container">
+                        <!-- Dynamic Reminders Inserted Here -->
+                    </div>
+                </section>
+
+            </div> <!-- End Dashboard View -->
+
+            <!-- Auto Order View (Hidden initially) -->
+            <section id="auto-order-view" class="reminders-section" aria-labelledby="auto-order-heading"
+                style="display: none;">
+                <header class="section-header">
+                    <h3 id="auto-order-heading" class="section-heading">Auto Order Prescriptions</h3>
+                </header>
+                <div style="padding: 20px 0;">
+                    <p style="color: #6c757d; margin-bottom: 20px;">
+                        Enable auto order to automatically trigger a refill reminder when stock is low.
+                    </p>
+                    <div class="reminder-list" id="auto-order-list">
+                        <!-- Auto Order Items injected by JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile View (Hidden initially) -->
+            <section id="profile-view" class="reminders-section" aria-labelledby="profile-heading"
+                style="display: none;">
+                <header class="section-header">
+                    <h3 id="profile-heading" class="section-heading">My Profile</h3>
+                </header>
+                <div style="text-align: center; padding: 40px 20px;">
+                    <div
+                        style="width: 100px; height: 100px; background-color: #2c77bd89; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 40px; color: #2f5c7e;">
+                        👤
+                    </div>
+                    <h4 style="font-size: 24px; color: #2f5c7e; margin-bottom: 5px;" id="profile-name-display">User Name
+                    </h4>
+                    <p style="color: #6c757d; margin-bottom: 30px;">DoseCare Patient</p>
+                    <button class="btn btn-logout" style="border: 1px solid #ccc; padding: 10px 20px;"
+                        onclick="document.getElementById('logout-btn').click()">Sign Out of All Devices</button>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- REMINDER MODAL -->
+    <div id="reminder-modal" class="modal"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 100;">
+        <div class="modal-content"
+            style="background: white; padding: 30px; border-radius: 12px; width: 90%; max-width: 400px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+            <h3 id="modal-title" style="margin-bottom: 20px; color: #2f5c7e;">Add New Medicine</h3>
+            <form id="reminder-form" style="display: flex; flex-direction: column; gap: 15px;">
+                <input type="hidden" id="reminder-id">
+
+                <div class="input-group">
+                    <label for="medicine-name"
+                        style="font-size: 13px; color: #555; margin-bottom: 5px; display: block;">Medicine Name</label>
+                    <input type="text" id="medicine-name" required
+                        style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit;">
+                </div>
+
+                <div class="input-group">
+                    <label for="medicine-dosage"
+                        style="font-size: 13px; color: #555; margin-bottom: 5px; display: block;">Dosage (e.g.,
+                        500mg)</label>
+                    <input type="text" id="medicine-dosage" required
+                        style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit;">
+                </div>
+
+                <div style="display: flex; gap: 15px;">
+                    <div class="input-group" style="flex: 1;">
+                        <label for="medicine-date"
+                            style="font-size: 13px; color: #555; margin-bottom: 5px; display: block;">Date</label>
+                        <input type="date" id="medicine-date" required
+                            style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit;">
+                    </div>
+
+                    <div class="input-group" style="flex: 1;">
+                        <label for="medicine-time"
+                            style="font-size: 13px; color: #555; margin-bottom: 5px; display: block;">Time</label>
+                        <input type="time" id="medicine-time" required
+                            style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit;">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label style="font-size: 13px; color: #555; margin-bottom: 8px; display: block;">Meal
+                        Preference</label>
+                    <div style="display: flex; gap: 20px;">
+                        <label style="font-size: 14px; display: flex; align-items: center; gap: 5px;">
+                            <input type="radio" name="medicine-meal" value="Before Food" required> Before Food
+                        </label>
+                        <label style="font-size: 14px; display: flex; align-items: center; gap: 5px;">
+                            <input type="radio" name="medicine-meal" value="After Food"> After Food
+                        </label>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label style="font-size: 14px; display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                        <input type="checkbox" id="medicine-alarm" checked style="width: 18px; height: 18px;"> Enable
+                        Alarm Notification
+                    </label>
+                </div>
+
+                <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px;">
+                    <button type="button" id="cancel-modal-btn" class="btn btn-logout"
+                        style="border: 1px solid #ccc">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Reminder</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- API Client (must be first) -->
+    <script src="../js/api.js"></script>
+    <!-- Storage Helper (kept as fallback cache) -->
+    <script src="../js/storage.js"></script>
+    <!-- Reminder & Alarm Logic -->
+    <script src="../js/reminder.js"></script>
+    <!-- Add Medicine Logic -->
+    <script src="../js/add-medicine.js"></script>
+    <!-- Authentication Script -->
+    <script src="../js/auth.js"></script>
+    <!-- Dashboard App Logic -->
+    <script src="../js/dashboard.js"></script>
+</body>
+
+</html>

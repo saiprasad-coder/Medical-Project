@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | DoseCare Smart Reminder</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <div class="main-container">
+
+        <div class="card">
+
+            <!-- LEFT PANEL -->
+            <div class="left-panel">
+                <h2>Smart Medical Reminder</h2>
+
+                <div class="image-box">
+                    <img src="../assets/images/doctor.jpg" alt="Doctor" class="doctor-img">
+                    <p class="image-caption">Join DoseCare Today</p>
+                </div>
+            </div>
+
+            <!-- RIGHT PANEL -->
+            <div class="right-panel">
+
+                <!-- BRAND -->
+                <div class="brand-header">
+                    <div class="logo">
+                        <img src="../assets/images/dosecarelogo.png" alt="DoseCare Logo">
+                    </div>
+                    <h1 class="brand-name">Create Account</h1>
+                </div>
+
+                <form id="signup-form" action="#" method="post"
+                    style="width: 100%; display: flex; flex-direction: column;">
+
+                    <div class="input-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">Email address</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Create a password" required>
+                    </div>
+
+                    <button type="submit" class="login-btn">Sign Up</button>
+                </form>
+
+                <p class="signup-text">
+                    Already have an account? <a href="index.html">Sign In</a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- API Client (must be first) -->
+    <script src="../js/api.js"></script>
+    <!-- Authentication Script (handles signup-form automatically) -->
+    <script src="../js/auth.js"></script>
+</body>
+
+</html>
